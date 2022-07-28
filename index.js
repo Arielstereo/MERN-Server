@@ -1,7 +1,6 @@
 import "dotenv/config";
 import DBConnection from "./config/database.js";
 import express from "express";
-import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import fileUpload from "express-fileupload";
@@ -10,7 +9,6 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 //middlewares
-app.use(cors());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
