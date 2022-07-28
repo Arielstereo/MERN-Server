@@ -13,9 +13,14 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 //middlewares
+app.use(
+  cors(
+    (origin = "localhost:3000"), //servidor que consume o (*) en caso que sea acceso libre
+    (credentials = true)
+  )
+);
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
 app.use(morgan("dev"));
 app.use(
   fileUpload({
