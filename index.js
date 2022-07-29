@@ -5,6 +5,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import fileUpload from "express-fileupload";
+import authRouter from "./routes/auth.js";
+import postRouter from "./routes/post.js";
 
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -31,8 +33,6 @@ app.use(
   })
 );
 
-import authRouter from "./routes/auth.js";
-import postRouter from "./routes/post.js";
 
 //routes
 app.use("/api/auth", authRouter);
