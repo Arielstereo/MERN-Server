@@ -7,7 +7,7 @@
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept",
-        "Content-Type": "multipart/form-data"        
+        "Content-Type": "multipart/form-data, application/json"        
       },
       "src": "/.*",
       "dest": "index.js"
