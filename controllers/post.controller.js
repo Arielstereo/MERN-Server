@@ -10,6 +10,7 @@ export const createPost = async (req, res) => {
 
     if (req.files?.image) {
       const result = await uploadImage(req.files.image.tempFilePath);
+      console.log(req.files.image)
       await fs.remove(req.files.image.tempFilePath);
       image = {
         url: result.secure_url,
@@ -17,12 +18,9 @@ export const createPost = async (req, res) => {
       };
     }
     const post = new Post({ title, content, image, date, uid: req.uid });
-    if (title && content) {
-      await post.save();
-      return res.status(200).json(post);
-    } else {
-      return res.json({ message: "The title and message fields are required" });
-    }
+    await post.save();
+    return res.status(200).json(post);
+
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
